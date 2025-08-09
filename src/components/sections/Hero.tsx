@@ -1,0 +1,110 @@
+"use client";
+
+import { useRef } from 'react';
+import { Rabbit, Bird, Fish } from 'lucide-react';
+import Image from 'next/image';
+
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import { useOnScreen } from '@/hooks/use-on-screen';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { useResponsiveTypography } from '@/hooks/use-responsive-typography';
+import { WispIcon } from '@/components/icons/WispIcon';
+
+const AiPoweredText = () => {
+  const welcomeText = "Welcome to the Zabbit Sleep Quiz, where understanding your natural sleep pattern just got easier.";
+  const { styles, isLoading } = useResponsiveTypography({
+    content: welcomeText,
+    baseFontSize: 16,
+    baseLineHeight: 24,
+  });
+
+  return (
+    <p
+      className={cn(
+        "max-w-md text-center text-muted-foreground transition-all duration-500",
+        isLoading ? 'opacity-0' : 'opacity-100'
+      )}
+      style={styles}
+    >
+      {welcomeText}
+    </p>
+  );
+};
+
+
+export function Hero() {
+  const ref = useRef<HTMLDivElement>(null);
+  const isVisible = useOnScreen(ref);
+  const isMobile = useIsMobile();
+
+  const AnimalIcons = () => (
+    <div className="absolute top-1/2 -right-4 -translate-y-1/2 md:-right-16 lg:-right-24 flex flex-col gap-2">
+       {[Rabbit, Bird, Fish].map((Icon, i) => (
+          <div key={i} className={cn(
+            'p-2 bg-white/10 rounded-full backdrop-blur-sm transition-all duration-700',
+            isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10',
+            `delay-${i * 150}`
+          )}>
+            <Icon className="h-5 w-5 md:h-6 md:w-6 text-white/80" />
+          </div>
+        ))}
+    </div>
+  );
+
+  return (
+    <section
+      ref={ref}
+      className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-20"
+    >
+      <WispIcon className="absolute -top-16 -right-16 w-48 h-48 text-white/5 opacity-50" style={{ animationDelay: '2s' }} />
+      <WispIcon className="absolute -bottom-16 -left-16 w-48 h-48 text-white/5 opacity-50 transform scale-x-[-1] scale-y-[-1]" />
+      
+      <div className="container mx-auto px-4 md:px-6">
+        <div className="relative flex flex-col items-center text-center">
+          <div
+            className={cn(
+              "transition-all duration-1000 ease-out",
+              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )}
+          >
+            <p className="font-bold tracking-[0.2em] text-muted-foreground">
+              SLEEP CHRONOTYPE QUIZ
+            </p>
+            <h1 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter">
+              Discover Your
+            </h1>
+            <h1 className="mt-1 text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter">
+              <span className="gradient-text">{isMobile ? "Sleep Persona" : "Sleep Animal"}</span> Today!
+            </h1>
+          </div>
+          
+          <div
+            className={cn(
+              "mt-6 max-w-lg transition-all duration-1000 ease-out delay-300",
+               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            )}
+          >
+            {!isMobile && (
+              <p className="font-semibold text-white">#1 Sleep Quiz Backed by Science</p>
+            )}
+            {isMobile && <AiPoweredText />}
+          </div>
+          
+          <div
+            className={cn(
+              "mt-8 transition-all duration-1000 ease-out delay-500",
+              isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
+            )}
+          >
+            <Button asChild size="lg" className="rounded-full px-10 py-7 text-lg font-bold transition-all hover:shadow-lg hover:brightness-110 hover:scale-105 gradient-background">
+                <a href="#quiz">Take the Quiz</a>
+            </Button>
+          </div>
+          
+          {!isMobile && <AnimalIcons />}
+        </div>
+      </div>
+    </section>
+  );
+}
