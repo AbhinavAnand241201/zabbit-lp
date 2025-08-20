@@ -126,7 +126,7 @@ export function IntroQuiz() {
                     <div
                       key={q.id}
                       className={cn(
-                        'transition-all duration-500 absolute w-full left-0 px-6',
+                        'transition-all duration-500 absolute w-full left-0 top-0 p-6',
                         index === currentQuestion ? 'opacity-100 translate-x-0' : 'opacity-0 pointer-events-none',
                         index > currentQuestion ? 'translate-x-full' : '-translate-x-full'
                       )}
