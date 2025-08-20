@@ -5,7 +5,7 @@ import { Rabbit, Book, BrainCircuit } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useOnScreen } from '@/hooks/use-on-screen';
-import { useIsMobile } from '@/hooks/use-is-mobile';
+import { useIsMobile } from '@/hooks/use-mobile';
 import { WispIcon } from '@/components/icons/WispIcon';
 
 export function Hero() {

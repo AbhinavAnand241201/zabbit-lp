@@ -1,18 +1,19 @@
 "use client";
 
 import { useState } from 'react';
-import { useForm, FormProvider, useFormContext } from 'react-hook-form';
+import { useForm, FormProvider } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Rocket, Loader, Award, Sparkles } from 'lucide-react';
 
-import { evaluateQuiz, EvaluateQuizInput, quizQuestions } from '@/ai/flows/quiz-flow';
+import { evaluateQuiz, EvaluateQuizInput } from '@/ai/flows/quiz-flow';
+import { quizQuestions } from '@/lib/quiz';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
-import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/hooks/use-toast';
 
 const apkLink = "https://drive.google.com/file/d/1FOLZFftWKZ4sjBxoPZUKlMMOicOs31v3/view?usp=sharing";
@@ -119,7 +120,7 @@ export function IntroQuiz() {
         </div>
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <Card className="bg-secondary/50 border-primary/20 overflow-hidden">
+            <Card className="bg-secondary/50 border-primary/20 overflow-hidden" style={{ minHeight: '280px'}}>
               <CardContent className="p-6">
                 <div className="relative">
                   {quizQuestions.map((q, index) => (
