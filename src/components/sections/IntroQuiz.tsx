@@ -120,20 +120,16 @@ export function IntroQuiz() {
         </div>
         <FormProvider {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-            <Card className="bg-secondary/50 border-primary/20 overflow-hidden" style={{ minHeight: '280px'}}>
-              <CardContent className="p-6">
-                <div className="relative">
+            <Card className="bg-secondary/50 border-primary/20 overflow-hidden">
+              <CardContent className="p-6 relative min-h-[320px]">
                   {quizQuestions.map((q, index) => (
                     <div
                       key={q.id}
                       className={cn(
-                        'transition-all duration-500 absolute w-full',
-                        index === currentQuestion ? 'opacity-100 translate-x-0' : 'opacity-0',
+                        'transition-all duration-500 absolute w-full left-0 px-6',
+                        index === currentQuestion ? 'opacity-100 translate-x-0' : 'opacity-0 pointer-events-none',
                         index > currentQuestion ? 'translate-x-full' : '-translate-x-full'
                       )}
-                      style={{
-                        visibility: index === currentQuestion ? 'visible' : 'hidden'
-                      }}
                     >
                       <FormField
                         control={form.control}
@@ -167,7 +163,6 @@ export function IntroQuiz() {
                       />
                     </div>
                   ))}
-                </div>
               </CardContent>
             </Card>
 
