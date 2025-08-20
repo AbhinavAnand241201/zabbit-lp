@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import Link from 'next/link';
-import { Menu } from 'lucide-react';
+import { Menu, Sparkles } from 'lucide-react';
 
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from '@/components/ui/button';
@@ -18,20 +18,23 @@ export function Header() {
     <Button
       asChild
       className={cn(
-        'rounded-full font-bold transition-all hover:shadow-lg hover:brightness-110 hover:scale-105',
-        'gradient-background',
+        'rounded-full font-bold transition-all hover:shadow-lg hover:shadow-accent/50 hover:brightness-110 hover:scale-105 group',
+        'gradient-background text-primary-foreground',
         className
       )}
     >
-      <a href={apkLink} target="_blank" rel="noopener noreferrer">Take the Quiz</a>
+      <a href={apkLink} target="_blank" rel="noopener noreferrer">
+        Take the Quiz
+        <Sparkles className="w-5 h-5 ml-2 transition-transform duration-500 group-hover:rotate-180" />
+      </a>
     </Button>
   );
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50">
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <RabbitIcon className="h-8 w-8 text-white" />
+        <Link href="/" className="flex items-center gap-2 group">
+          <RabbitIcon className="h-8 w-8 text-primary transition-transform duration-500 group-hover:rotate-[360deg] group-hover:scale-110" />
           <span className="text-2xl font-bold lowercase text-white">Zleepscape</span>
         </Link>
         <nav>

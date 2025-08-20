@@ -2,6 +2,7 @@ import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
 import { WhyQuiz } from "@/components/sections/WhyQuiz";
 import { Features } from "@/components/sections/Features";
+import { IntroQuiz } from "@/components/sections/IntroQuiz";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <WhyQuiz />
         <Features />
+        <IntroQuiz />
       </main>
       <Footer />
     </div>

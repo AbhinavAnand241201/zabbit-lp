@@ -5,7 +5,7 @@ import { Rabbit, Book, BrainCircuit } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useOnScreen } from '@/hooks/use-on-screen';
-import { useIsMobile } from '@/hooks/use-mobile';
+import { useIsMobile } from '@/hooks/use-is-mobile';
 import { WispIcon } from '@/components/icons/WispIcon';
 
 export function Hero() {
@@ -18,7 +18,7 @@ export function Hero() {
     <div className="absolute top-1/2 -right-4 -translate-y-1/2 md:-right-16 lg:-right-24 flex flex-col gap-2">
        {[Book, BrainCircuit, Rabbit].map((Icon, i) => (
           <div key={i} className={cn(
-            'p-2 bg-white/10 rounded-full backdrop-blur-sm transition-all duration-700',
+            'p-2 bg-white/10 rounded-full backdrop-blur-sm transition-all duration-700 hover:scale-125 hover:bg-primary/50',
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10',
             `delay-${i * 150}`
           )}>
@@ -34,8 +34,8 @@ export function Hero() {
       id="home"
       className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-20"
     >
-      <WispIcon className="absolute -top-16 -right-16 w-48 h-48 text-white/5 opacity-50" style={{ animationDelay: '2s' }} />
-      <WispIcon className="absolute -bottom-16 -left-16 w-48 h-48 text-white/5 opacity-50 transform scale-x-[-1] scale-y-[-1]" />
+      <WispIcon className="absolute -top-16 -right-16 w-48 h-48 text-primary/10 opacity-50" style={{ animationDelay: '2s' }} />
+      <WispIcon className="absolute -bottom-16 -left-16 w-48 h-48 text-accent/10 opacity-50 transform scale-x-[-1] scale-y-[-1]" />
       
       <div className="container mx-auto px-4 md:px-6">
         <div className="relative flex flex-col items-center text-center">
@@ -45,7 +45,7 @@ export function Hero() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}
           >
-            <p className="font-bold tracking-[0.2em] text-muted-foreground">
+            <p className="font-bold tracking-[0.2em] text-primary">
               SKILL-BASED LEARNING PLATFORM
             </p>
             <h1 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter">
@@ -73,7 +73,7 @@ export function Hero() {
               isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"
             )}
           >
-            <Button asChild size="lg" className="rounded-full px-10 py-7 text-lg font-bold transition-all hover:shadow-lg hover:brightness-110 hover:scale-105 gradient-background">
+            <Button asChild size="lg" className="rounded-full px-10 py-7 text-lg font-bold transition-all hover:shadow-lg hover:shadow-accent/50 hover:brightness-110 hover:scale-105 gradient-background text-primary-foreground">
                 <a href={apkLink} target="_blank" rel="noopener noreferrer">Download the App</a>
             </Button>
           </div>

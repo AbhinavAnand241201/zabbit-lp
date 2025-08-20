@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { useOnScreen } from '@/hooks/use-on-screen';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 export function WhyQuiz() {
   const ref = useRef<HTMLDivElement>(null);
@@ -29,6 +30,13 @@ export function WhyQuiz() {
               Complete quizzes to test your knowledge, track your progress with detailed analytics, and unlock new content as you master each level. It's learning, gamified.
             </p>
           </div>
+          <Button
+            variant="link"
+            className="text-lg text-primary hover:text-accent transition-colors animate-pulse hover:animate-none"
+            onClick={() => document.getElementById('intro-quiz')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Try our fun intro quiz!
+          </Button>
         </div>
       </div>
     </section>
