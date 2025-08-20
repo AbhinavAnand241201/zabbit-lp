@@ -35,7 +35,7 @@ export function Header() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2 group">
           <RabbitIcon className="h-8 w-8 text-primary transition-transform duration-500 group-hover:rotate-[360deg] group-hover:scale-110" />
-          <span className="text-2xl font-bold lowercase text-white">Zleepscape</span>
+          <span className="text-2xl font-bold lowercase text-white">Zabbit</span>
         </Link>
         <nav>
           {isMobile ? (

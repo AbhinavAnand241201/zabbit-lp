@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Zleepscape',
+  title: 'Zabbit',
   description: 'A skill-based learning platform to unlock your potential.',
 };
 
