@@ -9,7 +9,7 @@ export function WhyQuiz() {
   const isVisible = useOnScreen(ref, { threshold: 0.2 });
 
   return (
-    <section ref={ref} className="py-24 sm:py-32">
+    <section ref={ref} id="about" className="py-24 sm:py-32">
       <div className="container mx-auto max-w-3xl px-4 md:px-6">
         <div
           className={cn(
@@ -18,19 +18,15 @@ export function WhyQuiz() {
           )}
         >
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-            Why Take This Quiz?
+            Why Choose Our Platform?
           </h2>
           <div className="space-y-4 text-lg text-muted-foreground max-w-2xl">
             <p>
-              Understanding your unique sleep chronotype is the first step towards a more{' '}
-              <span className="gradient-text font-bold">energetic</span> life. Our quiz,
-              grounded in scientific research, helps you identify your natural sleep-wake cycle.
+              Our platform provides a structured approach to learning. By breaking down complex subjects into{' '}
+              <span className="gradient-text font-bold">chapters and skills</span>, we make learning manageable and motivating.
             </p>
             <p>
-              By aligning your daily schedule with your internal clock, you can unlock peak
-              performance, improve your mood, and boost your overall{' '}
-              <span className="gradient-text font-bold">productivity</span>. Stop fighting
-              your body's natural rhythm and start living in harmony with it.
+              Complete quizzes to test your knowledge, track your progress with detailed analytics, and unlock new content as you master each level. It's learning, gamified.
             </p>
           </div>
         </div>

@@ -1,46 +1,22 @@
 "use client";
 
 import { useRef } from 'react';
-import { Rabbit, Bird, Fish } from 'lucide-react';
-import Image from 'next/image';
-
+import { Rabbit, Book, BrainCircuit } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { useOnScreen } from '@/hooks/use-on-screen';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { useResponsiveTypography } from '@/hooks/use-responsive-typography';
 import { WispIcon } from '@/components/icons/WispIcon';
-
-const AiPoweredText = () => {
-  const welcomeText = "Welcome to the Zabbit Sleep Quiz, where understanding your natural sleep pattern just got easier.";
-  const { styles, isLoading } = useResponsiveTypography({
-    content: welcomeText,
-    baseFontSize: 16,
-    baseLineHeight: 24,
-  });
-
-  return (
-    <p
-      className={cn(
-        "max-w-md text-center text-muted-foreground transition-all duration-500",
-        isLoading ? 'opacity-0' : 'opacity-100'
-      )}
-      style={styles}
-    >
-      {welcomeText}
-    </p>
-  );
-};
-
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const isVisible = useOnScreen(ref);
   const isMobile = useIsMobile();
+  const apkLink = "https://drive.google.com/file/d/1FOLZFftWKZ4sjBxoPZUKlMMOicOs31v3/view?usp=sharing";
 
-  const AnimalIcons = () => (
+  const AppFeatureIcons = () => (
     <div className="absolute top-1/2 -right-4 -translate-y-1/2 md:-right-16 lg:-right-24 flex flex-col gap-2">
-       {[Rabbit, Bird, Fish].map((Icon, i) => (
+       {[Book, BrainCircuit, Rabbit].map((Icon, i) => (
           <div key={i} className={cn(
             'p-2 bg-white/10 rounded-full backdrop-blur-sm transition-all duration-700',
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10',
@@ -55,6 +31,7 @@ export function Hero() {
   return (
     <section
       ref={ref}
+      id="home"
       className="relative min-h-screen w-full overflow-hidden flex items-center justify-center pt-20"
     >
       <WispIcon className="absolute -top-16 -right-16 w-48 h-48 text-white/5 opacity-50" style={{ animationDelay: '2s' }} />
@@ -69,13 +46,13 @@ export function Hero() {
             )}
           >
             <p className="font-bold tracking-[0.2em] text-muted-foreground">
-              SLEEP CHRONOTYPE QUIZ
+              SKILL-BASED LEARNING PLATFORM
             </p>
             <h1 className="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter">
-              Discover Your
+              Unlock Your
             </h1>
             <h1 className="mt-1 text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tighter">
-              <span className="gradient-text">{isMobile ? "Sleep Persona" : "Sleep Animal"}</span> Today!
+              <span className="gradient-text">Full Potential</span> Today!
             </h1>
           </div>
           
@@ -85,10 +62,9 @@ export function Hero() {
                isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             )}
           >
-            {!isMobile && (
-              <p className="font-semibold text-white">#1 Sleep Quiz Backed by Science</p>
-            )}
-            {isMobile && <AiPoweredText />}
+             <p className="text-lg text-muted-foreground">
+              Progress through structured learning paths, complete quizzes, and master new skills at your own pace.
+            </p>
           </div>
           
           <div
@@ -98,11 +74,11 @@ export function Hero() {
             )}
           >
             <Button asChild size="lg" className="rounded-full px-10 py-7 text-lg font-bold transition-all hover:shadow-lg hover:brightness-110 hover:scale-105 gradient-background">
-                <a href="#quiz">Take the Quiz</a>
+                <a href={apkLink} target="_blank" rel="noopener noreferrer">Download the App</a>
             </Button>
           </div>
           
-          {!isMobile && <AnimalIcons />}
+          {!isMobile && <AppFeatureIcons />}
         </div>
       </div>
     </section>

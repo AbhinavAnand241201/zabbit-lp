@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: 'Zleepscape',
-  description: 'Discover your sleep chronotype and unlock your best self.',
+  description: 'A skill-based learning platform to unlock your potential.',
 };
 
 export default function RootLayout({

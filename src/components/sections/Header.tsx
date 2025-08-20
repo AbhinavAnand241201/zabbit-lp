@@ -12,6 +12,7 @@ import { cn } from '@/lib/utils';
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const isMobile = useIsMobile();
+  const apkLink = "https://drive.google.com/file/d/1FOLZFftWKZ4sjBxoPZUKlMMOicOs31v3/view?usp=sharing";
 
   const CtaButton = ({ className }: { className?: string }) => (
     <Button
@@ -22,7 +23,7 @@ export function Header() {
         className
       )}
     >
-      <a href="#quiz">Take the Quiz</a>
+      <a href={apkLink} target="_blank" rel="noopener noreferrer">Take the Quiz</a>
     </Button>
   );
 
@@ -31,7 +32,7 @@ export function Header() {
       <div className="container mx-auto flex h-20 items-center justify-between px-4 md:px-6">
         <Link href="/" className="flex items-center gap-2">
           <RabbitIcon className="h-8 w-8 text-white" />
-          <span className="text-2xl font-bold lowercase text-white">Zabbit</span>
+          <span className="text-2xl font-bold lowercase text-white">Zleepscape</span>
         </Link>
         <nav>
           {isMobile ? (

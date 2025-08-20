@@ -1,25 +1,25 @@
 "use client";
 
 import { useRef } from 'react';
-import { Megaphone, Dna, Clock } from 'lucide-react';
+import { Target, Trophy, Percent } from 'lucide-react';
 import { useOnScreen } from '@/hooks/use-on-screen';
 import { cn } from '@/lib/utils';
 
 const features = [
   {
-    icon: Megaphone,
-    title: 'No advertisements, just insights',
-    description: 'We focus on providing you with valuable, personalized sleep insights without any distractions.',
+    icon: Target,
+    title: 'Unlock Skills Sequentially',
+    description: 'Master each concept before moving on. Quizzes must be passed to unlock the next skill in a chapter.',
   },
   {
-    icon: Dna,
-    title: 'Scientifically backed',
-    description: 'Our quiz is based on established chronobiology research to give you accurate and reliable results.',
+    icon: Trophy,
+    title: 'Track Your Achievements',
+    description: 'See your quiz attempts and highest scores to gauge your improvement over time.',
   },
   {
-    icon: Clock,
-    title: 'Immediate results',
-    description: 'Discover your sleep chronotype instantly upon completing the quiz and get actionable advice.',
+    icon: Percent,
+    title: 'Visualize Your Progress',
+    description: 'Monitor your chapter completion percentage and stay motivated with streaks and rewards.',
   },
 ];
 
@@ -28,14 +28,14 @@ export function Features() {
   const isVisible = useOnScreen(ref, { threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-24 sm:py-32">
+    <section ref={ref} id="features" className="py-24 sm:py-32">
       <div className="container mx-auto max-w-5xl px-4 md:px-6">
         <div className="flex flex-col items-center text-center gap-4 mb-12 md:mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
-            What You Need to Know
+            How It Works
           </h2>
           <p className="max-w-xl text-lg text-muted-foreground">
-            About the Sleep Chronotype Quiz
+            A structured path to mastery
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
