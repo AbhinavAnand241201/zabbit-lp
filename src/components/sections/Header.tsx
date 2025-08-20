@@ -24,7 +24,7 @@ export function Header() {
       )}
     >
       <a href={apkLink} target="_blank" rel="noopener noreferrer">
-        Take the Quiz
+        Download App
         <Sparkles className="w-5 h-5 ml-2 transition-transform duration-500 group-hover:rotate-180" />
       </a>
     </Button>

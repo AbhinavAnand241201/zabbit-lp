@@ -30,13 +30,6 @@ export function WhyQuiz() {
               Complete quizzes to test your knowledge, track your progress with detailed analytics, and unlock new content as you master each level. It's learning, gamified.
             </p>
           </div>
-          <Button
-            variant="link"
-            className="text-lg text-primary hover:text-accent transition-colors animate-pulse hover:animate-none"
-            onClick={() => document.getElementById('intro-quiz')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Try our fun intro quiz!
-          </Button>
         </div>
       </div>
     </section>
